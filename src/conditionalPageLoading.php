@@ -5,8 +5,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
 $current_doc_name = preg_replace('/\.[^.]+$/','',$current_page);
 
 function loadCSSFile($fileName){
-  if (file_exists("css/" . $fileName)){
-    echo '<link href="css/' . $fileName . '" rel="stylesheet">';
+  if (file_exists("css/" . $fileName . '.css')){
+    echo '<link href="css/' . $fileName . '.css " rel="stylesheet">';
   }
 }
 
