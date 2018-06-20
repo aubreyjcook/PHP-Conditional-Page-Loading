@@ -12,7 +12,7 @@ $current_doc_name = preg_replace('/\.[^.]+$/','',$current_page);
 /* this function is used to load a CSS file from a local external stylesheet, the function checks for the existence of the file in the css/* directory and loads it if it exists*/
 function loadCSSFile($fileName){
   if (file_exists("css/" . $fileName . '.css')){
-    echo '<link href="css/' . $fileName . '.css " rel="stylesheet">';
+    echo '<link href="css/' . $fileName . '.css" rel="stylesheet">';
   }
 }
 
@@ -30,6 +30,7 @@ function loadCSSCDN($href, $sri=null){
 function loadJSFile($fileName){
   if (file_exists("js/" . $fileName . '.js')){
     echo '<script src="js/' . $fileName . '.js"></script>';
+
   }
 }
 
