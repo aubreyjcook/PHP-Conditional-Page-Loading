@@ -4,16 +4,22 @@ $current_page = basename($_SERVER['PHP_SELF']);
 /* this gets the page name without the extension: eg. 'index.php' = 'index' */
 $current_doc_name = preg_replace('/\.[^.]+$/','',$current_page);
 
-function loadCSSCDN($href){
-  echo '<link rel="stylesheet" href="' . $href . '" crossorigin="anonymous">';
-}
 
+/* this function is used to load a CSS file from a local external stylesheet, the function checks for the existence of the file in the css/* directory and loads it if it exists*/
 function loadCSSFile($fileName){
   if (file_exists("css/" . $fileName . '.css')){
     echo '<link href="css/' . $fileName . '.css " rel="stylesheet">';
   }
 }
 
-// TODO: Create loadJSFile function that takes a js file location or cdn parameter as a string and echos it
+/* this function takes two parameters and is used to load a css file from a CDN, the first parameter is the raw CDN url, the second is the subresource integrity SHA hash*/
+function loadCSSCDN($href, $sri=null){
+  if($sri != null){
+      echo '<link rel="stylesheet" href="' . $href . '" integrity="' . $sri . '" crossorigin="anonymous">';
+  } else {
+      echo '<link rel="stylesheet" href="' . $href . '" crossorigin="anonymous">';
+  }
+
+}
 
 ?>
